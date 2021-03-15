@@ -1,0 +1,36 @@
+===================Request body====================
+{   "orderId":"264602851",  
+    "note": "fdsfshjgjgfha123",                
+    "required_note": "KHONGCHOXEMHANG",   
+    "return_phone": "0332190458",    
+    "return_email": "sdfjfke@gmail.com",    
+    "return_address": "725 Hẻm số 7 Thành Thái, Phường 14, Quận 10, Hồ Chí Minh, Việt Nam",
+    "return_province":"Hà Nội",           
+    "return_district": "Quận Thanh Xuân",           
+    "return_ward": "Phường Khương Trung", 
+    "return_name":"quy",
+    "to_address": "Miss Ao Dai Building, 21 Nguyễn Trung Ngạn, Bến Nghé, Quận 1, Hồ Chí Minh, Vietnam",
+    "to_province":"Hà Nội",
+    "to_ward": "Phường Kim Liên",           
+    "to_district": "Quận Đống Đa",             
+    "client_order_code": "dsa",
+    "to_name": "TinTest124",
+    "to_email":"adjeuf@gmail.com",
+    "to_phone": "0987654321",
+    "cod_amount": "200000",
+    "hamlet":"Khác",
+    "to_street":"xa dan",
+    "weight": "200",
+    "height": "15",
+    "service_type_id": "2",
+    "payment_type_id": "1",
+    "order_time":0,
+    "service_id":"SGN-BIKE"
+}
+=====================header========================
+ShopId : 1278093
+token_ghtk :8D0250860Fcd64aA4393C6EfcCC7eFce98D70a91
+token_ghn : 2c6fb2a4-dc4c-11ea-9203-666d21bb7226
+token_aha : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhaGEiLCJ0eXAiOiJ1c2VyIiwiY2lkIjoiODQ1ODkwMDYzNjgiLCJzdGF0dXMiOiJPTkxJTkUiLCJlb2MiOiJuZ3V5ZW5kdWNxdXkuaHVzdEBnbWFpbC5jb20iLCJub2MiOiJxdXkiLCJjdHkiOiJTR04iLCJhY2NvdW50X3N0YXR1cyI6IkFDVElWQVRFRCIsImV4cCI6MTU5ODkyNzQyOSwicGFydG5lciI6InRlc3Rfa2V5In0.5O46jQslDF4Epnz82ngpkueslOScdDZ5A-5AdtYEVHMeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+==============file base====
+copy path file : resource static

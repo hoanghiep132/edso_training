@@ -1,0 +1,5 @@
+lengthArray=
+random=true
+threads=
+input=
+output=
