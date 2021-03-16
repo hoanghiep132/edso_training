@@ -11,6 +11,8 @@ public class FileIO {
     public static String outputFile = "src/edso/hiepnh/file/output.txt";
     public static String configFile = "src/edso/hiepnh/file/config.txt";
     public static Integer lengthArray = 10000000;
+    public static Integer threads = 4;
+    public static Boolean randomArray = false;
 
     public static void writeArrayToFile(String fileName,int[] arr){
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
@@ -51,19 +53,70 @@ public class FileIO {
         return arr;
     }
 
-    public static void readConfigFile(File file){
-
+    public static void readConfigFile(String fileName){
+        try(BufferedReader bf = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = bf.readLine()) != null) {
+                String[] strings = line.split("=");
+                switch (strings[0]){
+                    case "lengthArray":
+                        if (strings.length>1){
+                            try{
+                                lengthArray = Integer.valueOf(strings[1]);
+                            }catch (Exception ex){
+                                System.err.println("Config sai");
+                            }finally {
+                                break;
+                            }
+                        }
+                        break;
+                    case "input":
+                        if (strings.length>1){
+                            inputFile = strings[1];
+                        }
+                        break;
+                    case "output":
+                        if (strings.length>1){
+                            outputFile = strings[1];
+                        }
+                        break;
+                    case "threads":
+                        if (strings.length>1){
+                            try{
+                                threads = Integer.valueOf(strings[1]);
+                            }catch (Exception ex){
+                                System.err.println("Config sai");
+                            }finally {
+                                break;
+                            }
+                        }
+                        break;
+                    case "random":
+                        if (strings.length>1){
+                            if(strings[1].toLowerCase().equals("true")){
+                                randomArray = true;
+                            }else if(strings[1].toLowerCase().equals("false")){
+                                randomArray = false;
+                            }
+                        }
+                        randomArray =false;
+                        break;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
 
-        MyArray myArray = new RandomArray().randomArray(FileIO.lengthArray);
-        FileIO.writeArrayToFile(FileIO.inputFile,myArray.getArray());
+//        MyArray myArray = new RandomArray().randomArray(FileIO.lengthArray);
+//        FileIO.writeArrayToFile(FileIO.inputFile,myArray.getArray());
 
-//        int[] arr = FileIO.readArrayToFile(FileIO.inputFile,FileIO.lengthArray);
-//        for(int i = 0; i < arr.length; i++){
-//            System.out.print(arr[i] + " ");
-//        }
+        readConfigFile("src/edso/hiepnh/file/config.txt");
+        System.out.println(1);
     }
 
 }

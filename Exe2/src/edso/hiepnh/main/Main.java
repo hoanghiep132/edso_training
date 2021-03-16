@@ -44,7 +44,7 @@ public class Main {
         arr4.setLength(num);
         SortThreadImpl sortThread4 = new SortThreadImpl();
         sortThread4.setMyArray(arr4);
-        sortThread4.setThreadCount(4);
+        sortThread4.setThreadCount(8);
         long start4 = System.nanoTime();
         sortThread4.implement();
         long end4 = System.nanoTime();

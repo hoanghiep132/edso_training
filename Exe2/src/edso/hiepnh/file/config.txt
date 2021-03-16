@@ -1,5 +1,5 @@
-lengthArray=
-random=true
-threads=
-input=
-output=
+lengthArray=10000
+random=
+threads=4
+input=src/edso/hiepnh/file/output.txt
+output=src/edso/hiepnh/file/config.txt
