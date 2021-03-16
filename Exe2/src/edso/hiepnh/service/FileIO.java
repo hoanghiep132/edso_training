@@ -10,13 +10,19 @@ public class FileIO {
     public static String inputFile = "src/edso/hiepnh/file/input.txt";
     public static String outputFile = "src/edso/hiepnh/file/output.txt";
     public static String configFile = "src/edso/hiepnh/file/config.txt";
-    public static Integer lengthArray = 10000000;
+    public static Integer lengthArray = 10;
     public static Integer threads = 4;
     public static Boolean randomArray = false;
 
     public static void writeArrayToFile(String fileName,int[] arr){
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            writer.append(arr[0] + " ");
+        File file = new File(fileName);
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            writer.append(String.valueOf(arr[0]));
             for(int i = 1; i < arr.length; i++){
                 if(i % 10 == 0){
                     writer.append("\n"+arr[i]);
@@ -98,9 +104,10 @@ public class FileIO {
                             }else if(strings[1].toLowerCase().equals("false")){
                                 randomArray = false;
                             }
+                            break;
                         }
                         randomArray =false;
-                        break;
+
                 }
             }
         } catch (FileNotFoundException e) {
@@ -108,15 +115,16 @@ public class FileIO {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
+        if(randomArray){
+            MyArray myArray = new RandomArray().randomArray(lengthArray);
+            writeArrayToFile(inputFile,myArray.getArray());
+        }
     }
 
     public static void main(String[] args) {
 
-//        MyArray myArray = new RandomArray().randomArray(FileIO.lengthArray);
-//        FileIO.writeArrayToFile(FileIO.inputFile,myArray.getArray());
 
-        readConfigFile("src/edso/hiepnh/file/config.txt");
-        System.out.println(1);
+
     }
 
 }
