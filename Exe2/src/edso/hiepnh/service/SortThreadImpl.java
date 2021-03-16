@@ -6,6 +6,8 @@ import edso.hiepnh.entities.QuickSort;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class SortThreadImpl {
 
@@ -37,6 +39,8 @@ public class SortThreadImpl {
 
 
     public void implement(){
+        ExecutorService executorService = Executors.newFixedThreadPool(threadCount);
+        long start = System.nanoTime();
         int range = myArray.getLength() / threadCount;
         threadList = new ArrayList<>();
         int i = 0;
@@ -44,21 +48,21 @@ public class SortThreadImpl {
             int begin = i * range;
             int end = (i+1) * range - 1;
             Thread sortThread = new QuickSort(myArray.getArray(),begin,end);
-//            sortThread.start();
-            threadList.add(sortThread);
+            executorService.execute(sortThread);
         }
         Thread sortThread = new QuickSort(myArray.getArray(),i * range,myArray.getLength()-1);
-//        sortThread.start();
-        threadList.add(sortThread);
-        for (Thread t : threadList){
-            t.start();
-            try {
-                t.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        shutDown();
+        executorService.execute(sortThread);
+//        for (Thread t : threadList){
+//            t.start();
+//            try {
+//                t.join();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+        long end = System.nanoTime();
+        System.out.println("Sort time : " + (end-start) + " ns");
+        executorService.shutdown();
         if(threadCount > 1){
             merge(threadCount);
         }

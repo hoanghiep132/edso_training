@@ -21,7 +21,7 @@ public class Main {
         sortThread.implement();
         long end = System.nanoTime();
         sortThread.shutDown();
-        arr1.printArray();
+//        arr1.printArray();
         FileIO.writeArrayToFile(FileIO.outputFile,arr1.getArray());
         String data;
         if(num >= 1000000){
