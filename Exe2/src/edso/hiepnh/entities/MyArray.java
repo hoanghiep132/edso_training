@@ -50,14 +50,4 @@ public class MyArray {
         }
         return -1;
     }
-
-    public int[] subArray(int begin, int end){
-        if(begin < 0){
-            begin = 0;
-        }
-        if(end > length){
-            end = length;
-        }
-        return Arrays.copyOfRange(array,begin,end);
-    }
 }

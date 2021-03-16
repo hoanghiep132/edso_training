@@ -6,9 +6,6 @@ public class QuickSort extends Thread implements SortAlgorithm {
     private int begin;
     private int end;
 
-    public QuickSort() {
-    }
-
     public QuickSort(int[] array, int begin, int end) {
         this.array = array;
         this.begin = begin;
