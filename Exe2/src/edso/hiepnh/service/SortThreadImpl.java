@@ -44,17 +44,26 @@ public class SortThreadImpl {
             int begin = i * range;
             int end = (i+1) * range - 1;
             Thread sortThread = new QuickSort(myArray.getArray(),begin,end);
-            sortThread.start();
+//            sortThread.start();
             threadList.add(sortThread);
         }
         Thread sortThread = new QuickSort(myArray.getArray(),i * range,myArray.getLength()-1);
-        sortThread.start();
+//        sortThread.start();
         threadList.add(sortThread);
+        for (Thread t : threadList){
+            t.start();
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        shutDown();
         if(threadCount > 1){
             merge(threadCount);
         }
-
     }
+
 
     public void merge(int numberOfThread){
         int range = myArray.getLength() / threadCount * (threadCount / numberOfThread);

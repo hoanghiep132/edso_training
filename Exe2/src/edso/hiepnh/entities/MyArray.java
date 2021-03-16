@@ -1,5 +1,7 @@
 package edso.hiepnh.entities;
 
+import java.util.Arrays;
+
 public class MyArray {
 
     private int[] array;
@@ -25,9 +27,9 @@ public class MyArray {
     public MyArray() {
     }
 
-    public MyArray(MyArray another) {
-        this.array = another.getArray();
-        this.length = another.getLength();
+    public MyArray(int[] array, int length) {
+        this.array = array;
+        this.length = length;
     }
 
     public void printArray(){
@@ -38,5 +40,24 @@ public class MyArray {
             }
             System.out.print(array[i] + " ");
         }
+    }
+
+    public int checkOrdered(){
+        for (int i = 0; i < length; i++){
+            if(array[i] != i + 1){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int[] subArray(int begin, int end){
+        if(begin < 0){
+            begin = 0;
+        }
+        if(end > length){
+            end = length;
+        }
+        return Arrays.copyOfRange(array,begin,end);
     }
 }

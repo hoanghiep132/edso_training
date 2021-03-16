@@ -17,7 +17,7 @@ public class QuickSort extends Thread implements SortAlgorithm {
 
     @Override
     public void sort() {
-        quickSort(this.array,begin,end);
+        quickSort(array,begin,end);
     }
 
     public void run(){
