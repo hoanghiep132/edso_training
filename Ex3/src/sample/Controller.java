@@ -4,11 +4,14 @@ import entity.Consumer;
 import entity.Message;
 import entity.MessageQueue;
 import entity.Producer;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
@@ -26,38 +29,83 @@ public class Controller implements Initializable  {
     private ListView<String> listProducer;
 
     @FXML
-    private ListView<Message> listMsgQueue;
+    private ListView<String> listMsgQueue;
 
     @FXML
     private ListView<String> listConsumer;
 
-    private ObservableList<String> producerMessages ;
+    @FXML
+    private Label queueSize;
 
-    private ObservableList<String> consumerMessages ;
+    @FXML
+    private Label producerSpeed;
 
-    private ObservableList<Message> msgQueuerMessages;
+    @FXML
+    private Label consumerSpeed;
+
+
+    private ObservableList<String> producerItems ;
+
+    private ObservableList<String> consumerItems ;
+
+    private ObservableList<String> messageItems ;
 
     private  MessageQueue messageQueue;
 
+    private Producer threadProducer;
+
+    private Consumer threadConsumer;
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        producerMessages = FXCollections.observableArrayList();
-        consumerMessages = FXCollections.observableArrayList();
+
+        producerItems = FXCollections.observableArrayList();
+        consumerItems = FXCollections.observableArrayList();
+        messageItems = FXCollections.observableArrayList();
         messageQueue = MessageQueue.getInstance(LENGTH_QUEUE);
-        Thread threadProducer = new Producer(messageQueue,TIME_DELAY_PRODUCER,producerMessages);
-        Thread threadConsumer = new Consumer(messageQueue,TIME_DELAY_CONSUMER);
 
-        msgQueuerMessages = FXCollections.observableArrayList(messageQueue.getMessageList());
+        threadProducer = new Producer(messageQueue,TIME_DELAY_PRODUCER);
+        threadConsumer = new Consumer(messageQueue,TIME_DELAY_CONSUMER);
 
+        getContent();
         threadProducer.start();
         threadConsumer.start();
 
-
-        listProducer.setItems(producerMessages);
-        listMsgQueue.setItems(msgQueuerMessages);
-        listConsumer.setItems(consumerMessages);
+        producerSpeed.setText(String.valueOf(threadProducer.getTimeDelay()));
 
     }
 
 
+    private void getContent(){
+        threadProducer.getProducerMessages().addListener((ListChangeListener) c ->{
+            while (c.next()) {
+                if(c.wasAdded()){
+                    Platform.runLater(() -> {
+                        producerItems.addAll(c.getFrom(),c.getAddedSubList());
+                        int from = messageItems.size() < messageQueue.getLength() ? messageItems.size() : messageQueue.getLength();
+                        messageItems.addAll(from,c.getAddedSubList());
+                        queueSize.setText(String.valueOf(messageQueue.getLength()));
+                        consumerSpeed.setText(String.valueOf(threadConsumer.getSpeed()));
+                    });
+                }
+            }
+        });
+        threadConsumer.getConsumerMessages().addListener((ListChangeListener) c ->{
+            while (c.next()) {
+                if(c.wasAdded()){
+                    Platform.runLater(() -> {
+                        consumerItems.addAll(c.getFrom(),c.getAddedSubList());
+                        messageItems.removeAll(c.getAddedSubList());
+                        queueSize.setText(String.valueOf(messageQueue.getLength()));
+                        consumerSpeed.setText(String.valueOf(threadConsumer.getSpeed()));
+                    });
+                }
+            }
+        });
+
+        listProducer.setItems(producerItems);
+        listConsumer.setItems(consumerItems);
+        listMsgQueue.setItems(messageItems);
+    }
 }

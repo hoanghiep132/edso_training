@@ -18,7 +18,9 @@ public class QuickSort extends Thread implements SortAlgorithm {
     }
 
     public void run(){
+        System.out.println("Thread " + Thread.currentThread().getId() + " start : " + System.nanoTime());
         sort();
+        System.out.println("Thread " + Thread.currentThread().getId() + " end   : " + System.nanoTime());
     }
 
     private int partition(int[] arr, int begin, int end){

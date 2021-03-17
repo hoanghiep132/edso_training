@@ -1,8 +1,9 @@
 package entity;
 
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class MessageQueue implements MessageQueueStatement{
@@ -18,12 +19,22 @@ public class MessageQueue implements MessageQueueStatement{
 
     private Queue<Message> messageList = new LinkedList<>();
 
+
     public Queue<Message> getMessageList() {
         return messageList;
     }
 
+    public static boolean isFully(){
+        return messageQueue.state == FULLY ? true : false;
+    }
+
     private MessageQueue(int length) {
         this.length = length;
+    }
+
+
+    public int getLength(){
+        return this.getMessageList().size();
     }
 
     public static MessageQueue getInstance(int length){
@@ -49,7 +60,7 @@ public class MessageQueue implements MessageQueueStatement{
     }
 
     @Override
-    public int recivedMessageFromProducer(Message msg) {
+    public void recivedMessageFromProducer(Message msg) {
         if(state != FULLY){
             messageList.add(msg);
             if(messageList.size() == length){
@@ -58,6 +69,5 @@ public class MessageQueue implements MessageQueueStatement{
                 state = AVAIABLE;
             }
         }
-        return state;
     }
 }

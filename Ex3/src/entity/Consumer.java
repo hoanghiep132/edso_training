@@ -1,5 +1,8 @@
 package entity;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Consumer extends Thread {
 
     private MessageQueue messageQueue;
@@ -8,22 +11,49 @@ public class Consumer extends Thread {
 
     private long timeDelay;
 
+    private long speed;
+
+    private boolean bus = false;
+
+    private ObservableList<String> consumerMessages;
+
     public Consumer() {
+    }
+
+    public long getSpeed() {
+        return speed;
     }
 
     public Consumer(MessageQueue messageQueue, long timeDelay) {
         this.messageQueue = messageQueue;
         this.timeDelay = timeDelay;
+        this.consumerMessages = FXCollections.observableArrayList();
+    }
+
+    public ObservableList<String> getConsumerMessages() {
+        return consumerMessages;
     }
 
     public void run() {
+        speed = timeDelay;
         while (true){
+            if(bus){
+                if(messageQueue.getLength() <= 3){
+                    speed = timeDelay;
+                }
+            }else{
+                if(messageQueue.isFully()){
+                    bus = true;
+                    speed /= 3;
+                }
+            }
             Message msg = messageQueue.sendMessageToConsumber();
-            if(msg == null){
+            if(msg != null){
+                consumerMessages.add(msg.getMessage());
                 message = msg;
             }
             try {
-                Thread.sleep(timeDelay);
+                Thread.sleep(speed);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

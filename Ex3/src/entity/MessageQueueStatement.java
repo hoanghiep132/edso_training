@@ -4,5 +4,5 @@ public interface MessageQueueStatement {
 
     Message sendMessageToConsumber();
 
-    int recivedMessageFromProducer(Message msg);
+    void recivedMessageFromProducer(Message msg);
 }

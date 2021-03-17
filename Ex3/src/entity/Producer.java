@@ -1,7 +1,9 @@
 package entity;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Producer extends Thread{
@@ -12,22 +14,34 @@ public class Producer extends Thread{
 
     private ObservableList<String> producerMessages;
 
-    public Producer() {
+    public long getTimeDelay() {
+        return timeDelay;
     }
 
-    public Producer(MessageQueue messageQueue, long timeDelay, ObservableList<String> producerMessages) {
+    public Producer(MessageQueue messageQueue, long timeDelay) {
         this.messageQueue = messageQueue;
         this.timeDelay = timeDelay;
-        this.producerMessages = producerMessages;
+        this.producerMessages = FXCollections.observableArrayList();
+    }
+
+    public int getLength(){
+        return messageQueue.getMessageList().size();
+    }
+
+    public ObservableList<String> getProducerMessages() {
+        return producerMessages;
     }
 
     public void run(){
-        int state = MessageQueue.EMPTY;
+        sendMsg();
+    }
+
+    private void sendMsg(){
+        int i = 1;
         while (true){
-            if(state != MessageQueue.FULLY){
-                Message msg = generateMsg();
-                System.out.println("Producer : " + msg.getMessage());
-                state = messageQueue.recivedMessageFromProducer(msg);
+            if(!MessageQueue.isFully()){
+                Message msg = generateMsg(i++);
+                messageQueue.recivedMessageFromProducer(msg);
                 producerMessages.add(msg.getMessage());
             }
             try {
@@ -38,11 +52,11 @@ public class Producer extends Thread{
         }
     }
 
-    private Message generateMsg(){
+    private Message generateMsg(int index){
         Message msg = new Message();
         Date date = new Date();
-        String time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-        String str = time + " Hello ";
+        String time = new SimpleDateFormat("hh:MM:ss").format(date);
+        String str = time + " Hello " + index;
         msg.setMessage(str);
         return msg;
     }
