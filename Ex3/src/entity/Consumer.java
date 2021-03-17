@@ -11,17 +11,11 @@ public class Consumer extends Thread {
 
     private long timeDelay;
 
-    private long speed;
-
     private boolean bus = false;
 
     private ObservableList<String> consumerMessages;
 
     public Consumer() {
-    }
-
-    public long getSpeed() {
-        return speed;
     }
 
     public Consumer(MessageQueue messageQueue, long timeDelay) {
@@ -35,7 +29,7 @@ public class Consumer extends Thread {
     }
 
     public void run() {
-        speed = timeDelay;
+        long speed = timeDelay;
         while (true){
             if(bus){
                 if(messageQueue.getLength() <= 3){

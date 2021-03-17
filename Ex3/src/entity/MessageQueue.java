@@ -28,6 +28,10 @@ public class MessageQueue implements MessageQueueStatement{
         return messageQueue.state == FULLY ? true : false;
     }
 
+    public static boolean isEmpty(){
+        return messageQueue.state == EMPTY ? true : false;
+    }
+
     private MessageQueue(int length) {
         this.length = length;
     }

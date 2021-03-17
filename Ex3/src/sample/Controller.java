@@ -20,8 +20,8 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable  {
 
-    private final long TIME_DELAY_PRODUCER = 1000;
-    private final long TIME_DELAY_CONSUMER = 1500;
+    private final long TIME_DELAY_PRODUCER = 1500;
+    private final long TIME_DELAY_CONSUMER = 1000;
     private final int LENGTH_QUEUE = 10;
 
 
@@ -67,12 +67,12 @@ public class Controller implements Initializable  {
 
         threadProducer = new Producer(messageQueue,TIME_DELAY_PRODUCER);
         threadConsumer = new Consumer(messageQueue,TIME_DELAY_CONSUMER);
-
+        consumerSpeed.setText(String.valueOf(TIME_DELAY_CONSUMER));
+        producerSpeed.setText(String.valueOf(TIME_DELAY_PRODUCER));
         getContent();
         threadProducer.start();
         threadConsumer.start();
 
-        producerSpeed.setText(String.valueOf(threadProducer.getTimeDelay()));
 
     }
 

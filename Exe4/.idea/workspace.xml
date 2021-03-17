@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a8b4315-6686-48c6-91e1-00f8c56a571f" name="Default Changelist" comment="" />
+    <list default="true" id="2a8b4315-6686-48c6-91e1-00f8c56a571f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Ex3/out/production/Ex3/entity/MessageQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/out/production/Ex3/entity/MessageQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/out/production/Ex3/entity/Producer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/out/production/Ex3/entity/Producer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/out/production/Ex3/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/out/production/Ex3/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/out/production/Ex3/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/out/production/Ex3/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/src/entity/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/src/entity/MessageQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/src/entity/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/src/entity/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/src/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1psUVJ3Is6l55HddFOKpSTUnlYf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,10 +53,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615971315294</updated>
+      <workItem from="1615971316527" duration="624000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -14,18 +14,11 @@ public class Producer extends Thread{
 
     private ObservableList<String> producerMessages;
 
-    public long getTimeDelay() {
-        return timeDelay;
-    }
 
     public Producer(MessageQueue messageQueue, long timeDelay) {
         this.messageQueue = messageQueue;
         this.timeDelay = timeDelay;
         this.producerMessages = FXCollections.observableArrayList();
-    }
-
-    public int getLength(){
-        return messageQueue.getMessageList().size();
     }
 
     public ObservableList<String> getProducerMessages() {
@@ -37,10 +30,9 @@ public class Producer extends Thread{
     }
 
     private void sendMsg(){
-        int i = 1;
         while (true){
             if(!MessageQueue.isFully()){
-                Message msg = generateMsg(i++);
+                Message msg = generateMsg();
                 messageQueue.recivedMessageFromProducer(msg);
                 producerMessages.add(msg.getMessage());
             }
@@ -52,11 +44,11 @@ public class Producer extends Thread{
         }
     }
 
-    private Message generateMsg(int index){
+    private Message generateMsg(){
         Message msg = new Message();
         Date date = new Date();
-        String time = new SimpleDateFormat("hh:MM:ss").format(date);
-        String str = time + " Hello " + index;
+        String time = new SimpleDateFormat("hh:mm:ss").format(date);
+        String str = time + " Hello ";
         msg.setMessage(str);
         return msg;
     }
