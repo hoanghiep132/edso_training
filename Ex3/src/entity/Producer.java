@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 public class Producer extends Thread{
 
@@ -30,26 +31,28 @@ public class Producer extends Thread{
     }
 
     private void sendMsg(){
+        int i = 1;
         while (true){
             if(!MessageQueue.isFully()){
-                Message msg = generateMsg();
+                Message msg = generateMsg(i++);
                 messageQueue.recivedMessageFromProducer(msg);
                 producerMessages.add(msg.getMessage());
             }
             try {
-                Thread.sleep(timeDelay);
+                Thread.sleep(timeDelay * (new Random().nextInt(10)+1));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private Message generateMsg(){
+    private Message generateMsg(int i){
         Message msg = new Message();
         Date date = new Date();
         String time = new SimpleDateFormat("hh:mm:ss").format(date);
-        String str = time + " Hello ";
+        String str = time + " Hello " + i;
         msg.setMessage(str);
+        msg.setStatus(Message.SENDING);
         return msg;
     }
 

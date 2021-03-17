@@ -66,6 +66,7 @@ public class MessageQueue implements MessageQueueStatement{
     @Override
     public void recivedMessageFromProducer(Message msg) {
         if(state != FULLY){
+            msg.setStatus(Message.PENDING);
             messageList.add(msg);
             if(messageList.size() == length){
                 state = FULLY;

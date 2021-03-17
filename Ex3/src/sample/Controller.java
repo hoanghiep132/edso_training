@@ -8,10 +8,8 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
@@ -20,8 +18,8 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable  {
 
-    private final long TIME_DELAY_PRODUCER = 1500;
-    private final long TIME_DELAY_CONSUMER = 1000;
+    private final long TIME_DELAY_PRODUCER = 200;
+    private final long TIME_DELAY_CONSUMER = 200;
     private final int LENGTH_QUEUE = 10;
 
 
@@ -36,12 +34,6 @@ public class Controller implements Initializable  {
 
     @FXML
     private Label queueSize;
-
-    @FXML
-    private Label producerSpeed;
-
-    @FXML
-    private Label consumerSpeed;
 
 
     private ObservableList<String> producerItems ;
@@ -67,8 +59,6 @@ public class Controller implements Initializable  {
 
         threadProducer = new Producer(messageQueue,TIME_DELAY_PRODUCER);
         threadConsumer = new Consumer(messageQueue,TIME_DELAY_CONSUMER);
-        consumerSpeed.setText(String.valueOf(TIME_DELAY_CONSUMER));
-        producerSpeed.setText(String.valueOf(TIME_DELAY_PRODUCER));
         getContent();
         threadProducer.start();
         threadConsumer.start();
@@ -86,7 +76,6 @@ public class Controller implements Initializable  {
                         int from = messageItems.size() < messageQueue.getLength() ? messageItems.size() : messageQueue.getLength();
                         messageItems.addAll(from,c.getAddedSubList());
                         queueSize.setText(String.valueOf(messageQueue.getLength()));
-                        consumerSpeed.setText(String.valueOf(threadConsumer.getSpeed()));
                     });
                 }
             }
@@ -98,7 +87,6 @@ public class Controller implements Initializable  {
                         consumerItems.addAll(c.getFrom(),c.getAddedSubList());
                         messageItems.removeAll(c.getAddedSubList());
                         queueSize.setText(String.valueOf(messageQueue.getLength()));
-                        consumerSpeed.setText(String.valueOf(threadConsumer.getSpeed()));
                     });
                 }
             }

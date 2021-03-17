@@ -2,14 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a8b4315-6686-48c6-91e1-00f8c56a571f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/MyArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/PrintThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/SearchThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/SortThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/file/search.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/main/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/random/RandomArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/service/FileIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/out/production/Ex3/entity/Consumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/out/production/Ex3/entity/Consumer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/out/production/Ex3/entity/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/out/production/Ex3/entity/Message.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ex3/out/production/Ex3/entity/MessageQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/out/production/Ex3/entity/MessageQueue.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ex3/out/production/Ex3/entity/Producer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/out/production/Ex3/entity/Producer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ex3/out/production/Ex3/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/out/production/Ex3/sample/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ex3/out/production/Ex3/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/out/production/Ex3/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/out/production/Ex3/service/IMessageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/src/entity/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/src/entity/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/src/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/src/entity/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ex3/src/entity/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/src/entity/MessageQueue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ex3/src/entity/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/src/entity/Producer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ex3/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/src/sample/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Ex3/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex3/src/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex3/src/service/IMessageService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,11 +32,21 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1psUVJ3Is6l55HddFOKpSTUnlYf" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -29,10 +54,44 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="edso.hiepnh.service" />
+      <recent name="edso.hiepnh.entities" />
+      <recent name="edso.hiepnh.random" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="FileIO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edso.hiepnh.service.FileIO" />
+      <module name="Exe4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edso.hiepnh.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edso.hiepnh.main.Main" />
+      <module name="Exe4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edso.hiepnh.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -44,6 +103,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.FileIO" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -53,7 +118,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615971315294</updated>
-      <workItem from="1615971316527" duration="624000" />
+      <workItem from="1615971316527" duration="7458000" />
     </task>
     <servers />
   </component>
