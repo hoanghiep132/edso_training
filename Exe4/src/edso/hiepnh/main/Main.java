@@ -1,42 +1,50 @@
 package edso.hiepnh.main;
 
-import edso.hiepnh.entities.MyArray;
-import edso.hiepnh.entities.Result;
-import edso.hiepnh.entities.thread.PrintThread;
-import edso.hiepnh.entities.thread.SearchThread;
-import edso.hiepnh.entities.thread.SortThread;
+import edso.hiepnh.entities.*;
+import edso.hiepnh.entities.thread.ComplexThread;
+import edso.hiepnh.entities.thread.Printer;
+import edso.hiepnh.entities.thread.Searching;
+import edso.hiepnh.entities.thread.Sorting;
 import edso.hiepnh.service.FileIO;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
 
     public static void main(String[] args) {
 
         int[] array = FileIO.readArrayToFile(FileIO.inputFile,FileIO.lengthArray);
+        MyArray myArray = new MyArray(array,FileIO.lengthArray);
         List<Integer> list = FileIO.readSearchFile(FileIO.searchFile);
-        list.forEach(System.out::println);
-        List<Result> resultList = new ArrayList<>();
 
-        Thread sortThread = new SortThread(array,0,FileIO.lengthArray-1);
+//        ExecutorService executor = Executors.newFixedThreadPool(3);
+
+        Sorting sorting = new Sorting(myArray);
+        Searching searching = new Searching(myArray,list);
+        Printer printer = new Printer(myArray);
+
+        ComplexThread sortThread = new ComplexThread("Sort", sorting);
+        ComplexThread searchThread = new ComplexThread("Search" , searching);
+        ComplexThread printThread = new ComplexThread("Print" , printer);
+
         sortThread.start();
-
-        Thread searchThread = new SearchThread(new MyArray(array,FileIO.lengthArray),list);
-        ((SearchThread) searchThread).setResultList(resultList);
         searchThread.start();
-
-        Thread printThread = new PrintThread(((SearchThread) searchThread).getResultList());
         printThread.start();
 
-        try {
-            sortThread.join();
-            searchThread.join();
-            printThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+//        try {
+//            sortThread.join();
+//            searchThread.join();
+//            printThread.join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
-        }
-
+//        executor.submit(sortThread);
+//        executor.submit(searchThread);
+//        executor.submit(printThread);
+//        executor.shutdown();
     }
 }

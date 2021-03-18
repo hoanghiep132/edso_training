@@ -3,28 +3,25 @@ package edso.hiepnh.entities;
 public class MergeSort extends Thread implements SortAlgorithm{
 
     private int[] array;
-    private int length;
     private int begin;
     private int end;
 
     public MergeSort() {
     }
 
-    public MergeSort(int[] array,int length, int begin, int end) {
+    public MergeSort(int[] array,int begin, int end) {
         this.array = array;
-        this.length = length;
         this.begin = begin;
         this.end = end;
     }
 
     public void run(){
-        mergeArray(array,begin,end);
+        sort(array,begin,end);
     }
 
     @Override
     public void sort() {
-        mergeArray(array,begin,end);
-//        sort(array,begin,end);
+        sort(array,begin,end);
     }
 
     void merge(int arr[], int l, int m, int r)
@@ -93,33 +90,4 @@ public class MergeSort extends Thread implements SortAlgorithm{
         }
     }
 
-    void mergeArray(int[] arr, int l, int r){
-            int[] newArray = array;
-            int m = (r-l)/2;
-            int n = m+1;
-            int index = l;
-            while (l <= m && n <= r){
-                try{
-                    if(arr[l] < arr[n]){
-                        newArray[index++] = arr[l++];
-                    }else{
-                        newArray[index++] = arr[n++];
-                    }
-                }catch (Exception ex){
-                    System.err.println(r);
-                    break;
-                }
-            }
-            try{
-                while (l <= m){
-                    newArray[index++] = arr[l++];
-                }
-                while (n <= r){
-                    newArray[index++] = arr[n++];
-                }
-            }catch (Exception ex){
-                System.err.println(r + "," + n);
-            }
-            this.array = newArray;
-    }
 }

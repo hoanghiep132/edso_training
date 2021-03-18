@@ -29,9 +29,6 @@ public class SortThreadImpl {
         }
     }
 
-    public MyArray getMyArray() {
-        return myArray;
-    }
 
     public void setMyArray(MyArray myArray) {
         this.myArray = myArray;
@@ -60,6 +57,7 @@ public class SortThreadImpl {
                 e.printStackTrace();
             }
         }
+
         if(threadCount > 1){
             merge(threadCount);
         }
@@ -68,16 +66,27 @@ public class SortThreadImpl {
 
     public void merge(int numberOfThread){
         int range = myArray.getLength() / threadCount * (threadCount / numberOfThread);
-        int i = 0;
-        for(; i < numberOfThread-2; i += 2){
-            int begin = i*range;
-            int medium = (i+1)*range-1;
-            int end =(i+2)*range-1;
-            mergeArray(myArray.getArray(),begin,medium,end);
-        }
-        mergeArray(myArray.getArray(),i*range,(i+1)*range-1,myArray.getLength()-1);
-        if (numberOfThread > 2){
-            merge(numberOfThread/2);
+        if(numberOfThread % 2 == 0){
+            int i = 0;
+            for(; i < numberOfThread-2; i += 2){
+                int begin = i*range;
+                int medium = (i+1)*range-1;
+                int end =(i+2)*range-1;
+                mergeArray(myArray.getArray(),begin,medium,end);
+            }
+            mergeArray(myArray.getArray(),i*range,(i+1)*range-1,myArray.getLength()-1);
+            if (numberOfThread > 2){
+                merge(numberOfThread/2);
+            }
+        }else{
+            int i = 1;
+            int begin = 0;
+            for(; i < numberOfThread-1; i++){
+                int medium = i*range-1;
+                int end =(i+1)*range-1;
+                mergeArray(myArray.getArray(),begin,medium,end);
+            }
+            mergeArray(myArray.getArray(),begin,i*range-1,myArray.getLength()-1);
         }
     }
 
