@@ -33,18 +33,5 @@ public class Main {
         sortThread.start();
         searchThread.start();
         printThread.start();
-
-//        try {
-//            sortThread.join();
-//            searchThread.join();
-//            printThread.join();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
-//        executor.submit(sortThread);
-//        executor.submit(searchThread);
-//        executor.submit(printThread);
-//        executor.shutdown();
     }
 }

@@ -2,13 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a8b4315-6686-48c6-91e1-00f8c56a571f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/ComplexThread.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/IThreadArray.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/Printer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/Searching.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/Sorting.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/ComplexThread.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/IThreadArray.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/Printer.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/Searching.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/Sorting.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Exe5/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Exe5/Exe5.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/src/client/views/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/src/client/views/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/src/client/views/sample.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Exe5/src/entities/MyFile.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Exe5/src/server/main/ServerMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Exe2/out/production/Exe2/edso/hiepnh/entities/MergeSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe2/out/production/Exe2/edso/hiepnh/entities/MergeSort.class" afterDir="false" />
@@ -139,7 +155,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615971315294</updated>
       <workItem from="1615971316527" duration="8189000" />
-      <workItem from="1616030145400" duration="26145000" />
+      <workItem from="1616030145400" duration="26477000" />
     </task>
     <servers />
   </component>
@@ -159,15 +175,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/edso/hiepnh/entities/thread/ComplexThread.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="edso.hiepnh.entities.thread.SearchThread" memberName="resultList" />
