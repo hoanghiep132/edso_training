@@ -11,7 +11,7 @@ public class FileIO {
 
     public static String inputFile = "src/edso/hiepnh/file/input.txt";
     public static String searchFile = "src/edso/hiepnh/file/search.txt";
-    public static Integer lengthArray = 10_000_000;
+    public static Integer lengthArray = 100_000;
 
     public static void writeArrayToFile(String fileName,int[] arr){
         File file = new File(fileName);

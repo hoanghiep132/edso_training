@@ -12,8 +12,8 @@ public class Printer implements IThreadArray{
 
     @Override
     public void implement() {
-        synchronized (this){
-            myArray.printMonitor();
-        }
+//        myArray.printMonitor();
+        myArray.implement(3);
     }
+
 }

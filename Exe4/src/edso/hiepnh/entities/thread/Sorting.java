@@ -12,8 +12,8 @@ public class Sorting implements IThreadArray{
 
     @Override
     public void implement() {
-        synchronized (this) {
-            myArray.sort();
-        }
+        myArray.implement(1);
+//        myArray.sort();
     }
+
 }

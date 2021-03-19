@@ -1,5 +1,8 @@
 package edso.hiepnh.entities;
 
+import java.util.List;
+import java.util.stream.Collector;
+
 public class Result {
 
     private int index;
@@ -20,4 +23,5 @@ public class Result {
                 ", value=" + value +
                 '}';
     }
+
 }

@@ -1,8 +1,11 @@
 package edso.hiepnh.entities.thread;
 
 import edso.hiepnh.entities.MyArray;
+import edso.hiepnh.entities.Result;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Searching implements IThreadArray{
 
@@ -12,13 +15,14 @@ public class Searching implements IThreadArray{
 
     public Searching(MyArray myArray, List<Integer> searchList) {
         this.myArray = myArray;
-        this.searchList = searchList;
+//        this.searchList = searchList;
+        myArray.setSearchList(searchList);
     }
 
     @Override
     public void implement() {
-        synchronized (this) {
-            myArray.search(searchList);
-        }
+//        myArray.search(searchList);
+        myArray.implement(2);
     }
+
 }

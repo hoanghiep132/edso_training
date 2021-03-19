@@ -1,6 +1,8 @@
 package edso.hiepnh.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -13,6 +15,8 @@ public class MyArray {
 
     private List<Result> resultList;
 
+    private List<Integer> searchList = null;
+
     public int[] getArray() {
         return array;
     }
@@ -21,7 +25,7 @@ public class MyArray {
         this.array = array;
     }
 
-    public int getLength() {
+    public  int getLength() {
         return length;
     }
 
@@ -29,8 +33,25 @@ public class MyArray {
         this.length = length;
     }
 
+    public List<Result> getResultList() {
+        return resultList;
+    }
+
+    public void setResultList(List<Result> resultList) {
+        this.resultList = resultList;
+    }
+
+    public List<Integer> getSearchList() {
+        return searchList;
+    }
+
+    public void setSearchList(List<Integer> searchList) {
+        this.searchList = searchList;
+    }
+
     public MyArray() {
     }
+
 
     public MyArray(int[] array, int length) {
         this.array = array;
@@ -38,8 +59,25 @@ public class MyArray {
         resultList = new ArrayList<>();
     }
 
+    public synchronized void implement(int option){
+        System.out.println("Thread " + Thread.currentThread().getName() + " running....");
+        switch (option){
+            case 1 :
+                sort();
+                break;
+            case 2:
+                search(searchList);
+                break;
+            case 3 :
+                printMonitor();
+                break;
+        }
+        String format = "hh:mm:ss.SSS";
+        System.out.println("Thread " + Thread.currentThread().getName() + " end : " + new SimpleDateFormat(format).format(new Date()));
+    }
+
     public synchronized void sort(){
-        quickSort(array,0,length-1);
+        quickSort(getArray(),0,getLength()-1);
     }
 
     public synchronized void search(List<Integer> searchList){

@@ -2,56 +2,62 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a8b4315-6686-48c6-91e1-00f8c56a571f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/ComplexThread.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/IThreadArray.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/Printer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/Searching.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/Sorting.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/ComplexThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/IThreadArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/Printer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/Searching.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/Sorting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/Exe5.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/src/client/views/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/src/client/views/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/src/client/views/sample.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/src/entities/MyFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Exe5/src/server/main/ServerMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exe2/out/production/Exe2/edso/hiepnh/entities/MergeSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe2/out/production/Exe2/edso/hiepnh/entities/MergeSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exe2/out/production/Exe2/edso/hiepnh/file/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe2/out/production/Exe2/edso/hiepnh/file/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exe2/out/production/Exe2/edso/hiepnh/file/test/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe2/out/production/Exe2/edso/hiepnh/file/test/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exe2/out/production/Exe2/edso/hiepnh/file/test/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe2/out/production/Exe2/edso/hiepnh/file/test/output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exe2/out/production/Exe2/edso/hiepnh/service/SortThreadImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe2/out/production/Exe2/edso/hiepnh/service/SortThreadImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exe2/src/edso/hiepnh/entities/MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe2/src/edso/hiepnh/entities/MergeSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exe2/src/edso/hiepnh/file/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe2/src/edso/hiepnh/file/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exe2/src/edso/hiepnh/service/SortThreadImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe2/src/edso/hiepnh/service/SortThreadImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/Ex4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/src/edso/hiepnh/entities/MyArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/src/edso/hiepnh/entities/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/src/edso/hiepnh/entities/thread/ComplexThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/src/edso/hiepnh/entities/thread/IThreadArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/src/edso/hiepnh/entities/thread/Printer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/src/edso/hiepnh/entities/thread/Searching.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/src/edso/hiepnh/entities/thread/Sorting.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/src/edso/hiepnh/file/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/src/edso/hiepnh/file/search.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/src/edso/hiepnh/random/RandomArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex4/src/edso/hiepnh/service/FileIO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/src/edso/hiepnh/client/config/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/src/edso/hiepnh/client/config/config.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/src/edso/hiepnh/client/service/FileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/src/edso/hiepnh/entities/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/src/edso/hiepnh/entities/Response.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/src/edso/hiepnh/server/config/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/src/edso/hiepnh/server/config/config.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/src/edso/hiepnh/server/main/ServerMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Exe5/src/edso/hiepnh/utils/ObjectUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/MyArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/MyArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/PrintThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/SearchThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/SortThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/ComplexThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/ComplexThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/Printer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/Printer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/Searching.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/Searching.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/Sorting.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/entities/thread/Sorting.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/file/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/file/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/file/search.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/file/search.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/service/FileIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe4/edso/hiepnh/service/FileIO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/entities/MyArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/MyArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/PrintThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/SearchThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/SortThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/entities/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/ComplexThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/ComplexThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/Printer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/Searching.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/Searching.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/Sorting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/thread/Sorting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/file/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/file/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/file/search.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/file/search.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/service/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/service/FileIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe5/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe5/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe5/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe5/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe5/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe5/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe5/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe5/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe5/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe5/src/client/views/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe5/src/client/views/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe5/src/client/views/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe5/src/entities/MyFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe5/src/server/main/ServerMain.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,15 +132,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -155,7 +159,9 @@
       <option name="presentableId" value="Default" />
       <updated>1615971315294</updated>
       <workItem from="1615971316527" duration="8189000" />
-      <workItem from="1616030145400" duration="26477000" />
+      <workItem from="1616030145400" duration="30622000" />
+      <workItem from="1616116602715" duration="5734000" />
+      <workItem from="1616124161337" duration="4172000" />
     </task>
     <servers />
   </component>
@@ -175,6 +181,15 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/edso/hiepnh/main/Main.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="edso.hiepnh.entities.thread.SearchThread" memberName="resultList" />
@@ -183,6 +198,7 @@
     <watches-manager>
       <configuration name="Application">
         <watch expression="searchThread.searchList" />
+        <watch expression="sortThread" />
       </configuration>
     </watches-manager>
   </component>
