@@ -12,11 +12,9 @@ public class ComplexThread extends Thread{
         this.thread = thread;
     }
 
-
-
     public void run(){
         String format = "hh:mm:ss.SSS";
-        System.out.println("Thread " + Thread.currentThread().getName() + " start : " + new SimpleDateFormat(format).format(new Date()) + " , Priority :" + Thread.currentThread().getPriority());
+        System.out.println("Thread " + Thread.currentThread().getName() + " start : " + new SimpleDateFormat(format).format(new Date()));
         synchronized (this){
             thread.implement();
         }

@@ -21,4 +21,8 @@ public class Result {
                 '}';
     }
 
+    public void addListResult(ListResult listResult){
+        listResult.add(this);
+    }
+
 }

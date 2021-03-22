@@ -55,7 +55,7 @@ public class Controller implements Initializable  {
         producerItems = FXCollections.observableArrayList();
         consumerItems = FXCollections.observableArrayList();
         messageItems = FXCollections.observableArrayList();
-        messageQueue = MessageQueue.getInstance(LENGTH_QUEUE);
+        messageQueue = new MessageQueue(LENGTH_QUEUE);
 
         threadProducer = new Producer(messageQueue,TIME_DELAY_PRODUCER);
         threadConsumer = new Consumer(messageQueue,TIME_DELAY_CONSUMER);

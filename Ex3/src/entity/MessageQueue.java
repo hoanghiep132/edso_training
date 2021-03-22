@@ -1,14 +1,11 @@
 package entity;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class MessageQueue implements MessageQueueStatement{
 
-    private static MessageQueue messageQueue = null;
 
     public static int EMPTY = 0;
     public static int AVAIABLE = 1;
@@ -17,23 +14,24 @@ public class MessageQueue implements MessageQueueStatement{
     private int state = EMPTY;
     private int length;
 
-    private Queue<Message> messageList = new LinkedList<>();
+    private Queue<Message> messageList;
 
 
     public Queue<Message> getMessageList() {
         return messageList;
     }
 
-    public static boolean isFully(){
-        return messageQueue.state == FULLY ? true : false;
+    public boolean isFully(){
+        return state == FULLY ? true : false;
     }
 
-    public static boolean isEmpty(){
-        return messageQueue.state == EMPTY ? true : false;
+    public boolean isEmpty(){
+        return state == EMPTY ? true : false;
     }
 
-    private MessageQueue(int length) {
+    public MessageQueue(int length) {
         this.length = length;
+        messageList = new LinkedList<>();
     }
 
 
@@ -41,13 +39,14 @@ public class MessageQueue implements MessageQueueStatement{
         return this.getMessageList().size();
     }
 
-    public static MessageQueue getInstance(int length){
-        if(messageQueue == null){
-            messageQueue = new MessageQueue(length);
-        }
-        return messageQueue;
+    public int getState() {
+        return state;
     }
-    
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
     @Override
     public  Message sendMessageToConsumber() {
         if(state != EMPTY){

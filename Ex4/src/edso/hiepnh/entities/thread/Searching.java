@@ -1,5 +1,6 @@
 package edso.hiepnh.entities.thread;
 
+import edso.hiepnh.entities.ListResult;
 import edso.hiepnh.entities.MyArray;
 import edso.hiepnh.entities.Result;
 import javafx.collections.ObservableList;
@@ -14,22 +15,31 @@ public class Searching implements IThreadArray{
 
     private List<Integer> searchList;
 
+    private ListResult listResult;
 
-    public Searching(MyArray myArray, List<Integer> searchList) {
+    public Searching(MyArray myArray, List<Integer> searchList, ListResult listResult) {
         this.myArray = myArray;
-//        this.searchList = searchList;
-        myArray.setSearchList(searchList);
+        this.searchList =  searchList;
+        this.listResult = listResult;
     }
 
     @Override
-    public void implement() {
-        search(searchList);
+    public synchronized void implement() {
+//        try {
+//            wait();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        search();
     }
-    
-    public void search(List<Integer> searchList){
-         IntStream.range(0, myArray.getLength()-1).filter(i -> searchList.contains(myArray.getArray()[i]))
-                .mapToObj(i -> new Result(i,myArray.getArray()[i]))
-                .collect(Collectors.toList());
+
+    private void search(){
+        for(int i = 0; i < myArray.getLength(); i++){
+            if(searchList.contains(myArray.getArray()[i])){
+                Result result = new Result(i,myArray.getArray()[i]);
+                result.addListResult(listResult);
+            }
+        }
     }
 
 

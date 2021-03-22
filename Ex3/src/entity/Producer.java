@@ -33,7 +33,7 @@ public class Producer extends Thread{
     private void sendMsg(){
         int i = 1;
         while (true){
-            if(!MessageQueue.isFully()){
+            if(!messageQueue.isFully()){
                 Message msg = generateMsg(i++);
                 messageQueue.recivedMessageFromProducer(msg);
                 producerMessages.add(msg.getMessage());

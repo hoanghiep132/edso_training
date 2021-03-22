@@ -1,18 +1,20 @@
 package edso.hiepnh.main;
 
+import edso.hiepnh.entities.ListResult;
 import edso.hiepnh.entities.MyArray;
 import edso.hiepnh.entities.Result;
-import edso.hiepnh.entities.thread.ComplexThread;
-import edso.hiepnh.entities.thread.Printer;
-import edso.hiepnh.entities.thread.Searching;
-import edso.hiepnh.entities.thread.Sorting;
+import edso.hiepnh.entities.thread.*;
 import edso.hiepnh.service.FileIO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -40,7 +42,9 @@ public class Controller implements Initializable {
 
 
     @FXML
-    private ListView<Result> resultView;
+    private TextArea resultView;
+
+    private ObservableList<Result> results = FXCollections.observableArrayList();
 
     private File file;
 
@@ -62,26 +66,46 @@ public class Controller implements Initializable {
 
     @FXML
     void start(ActionEvent event) {
-        int[] array = FileIO.readArrayToFile(file.getAbsolutePath());
-        MyArray myArray = new MyArray(array,FileIO.lengthArray);
-        myArray.printArray();
-        List<Integer> listSearch = new ArrayList<>();
-        String search = searchField.getText();
-        if(!search.equals("")){
-            String[] strings = search.split(" ");
-            for (String s : strings){
-                try {
-                    listSearch.add(Integer.valueOf(s));
-                }catch (Exception ex){
-                    System.err.println("Input sai");
+//        if(fileInput.getText().equals("")){
+        if(!fileInput.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Please choose file input!");
+            alert.show();
+        }else if(searchField.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Please type search field!");
+            alert.show();
+        }
+        else{
+//            int[] array = FileIO.readArrayToFile(file.getAbsolutePath());
+            int[] array = FileIO.readArrayToFile("/home/hiepnguyen/InteliJ_Project/edso_training/Ex4/src/edso/hiepnh/file/input.txt");
+            MyArray myArray = new MyArray(array,FileIO.lengthArray);
+            List<Integer> listSearch = new ArrayList<>();
+            String search = searchField.getText();
+            if(!search.equals("")){
+                String[] strings = search.split(" ");
+                for (String s : strings){
+                    try {
+                        listSearch.add(Integer.valueOf(s));
+                    }catch (Exception ex){
+                        System.err.println("Input sai");
+                    }
                 }
             }
+            ListResult listResult = new ListResult();
+            Sorting sorting = new Sorting(myArray);
+            Searching searching = new Searching(myArray,listSearch, listResult);
+            DisplayResult displayResult = new DisplayResult(listResult);
+
+            ComplexThread sortThread = new ComplexThread("Sort", sorting);
+            ComplexThread searchThread = new ComplexThread("Search" , searching);
+            ComplexThread displayThread = new ComplexThread("Display",displayResult);
+
+            sortThread.start();
+            searchThread.start();
+            displayThread.start();
         }
 
-        Sorting sorting = new Sorting(myArray);
-        Searching searching = new Searching(myArray,listSearch);
 
-        ComplexThread sortThread = new ComplexThread("Sort", sorting);
-        ComplexThread searchThread = new ComplexThread("Search" , searching);
     }
 }
