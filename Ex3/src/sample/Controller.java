@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable  {
 
     private final long TIME_DELAY_PRODUCER = 200;
-    private final long TIME_DELAY_CONSUMER = 200;
+    private final long TIME_DELAY_CONSUMER = 300;
     private final int LENGTH_QUEUE = 10;
 
 

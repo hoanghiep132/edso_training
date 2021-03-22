@@ -1,5 +1,7 @@
 package edso.hiepnh.entities;
 
+import javafx.collections.ObservableList;
+
 public class Result {
 
     private int index;
@@ -23,6 +25,15 @@ public class Result {
 
     public void addListResult(ListResult listResult){
         listResult.add(this);
-    }
 
+        synchronized (listResult){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            listResult.notifyAll();
+        }
+    }
 }

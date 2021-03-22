@@ -9,12 +9,9 @@ public class Consumer extends Thread {
 
     private MessageQueue messageQueue;
 
-    public static Message message;
 
     private long timeDelay;
 
-
-    private boolean bus = false;
 
     private ObservableList<String> consumerMessages;
 
@@ -36,7 +33,7 @@ public class Consumer extends Thread {
             Message msg = messageQueue.sendMessageToConsumber();
             if(msg != null){
                 consumerMessages.add(msg.getMessage());
-                message = msg;
+                msg.setStatus(Message.SENT);
             }
             try {
                 Thread.sleep(timeDelay * (new Random().nextInt(10)+1));

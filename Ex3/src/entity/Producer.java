@@ -33,11 +33,9 @@ public class Producer extends Thread{
     private void sendMsg(){
         int i = 1;
         while (true){
-            if(!messageQueue.isFully()){
-                Message msg = generateMsg(i++);
-                messageQueue.recivedMessageFromProducer(msg);
-                producerMessages.add(msg.getMessage());
-            }
+            Message msg = generateMsg(i++);
+            messageQueue.recivedMessageFromProducer(msg);
+            producerMessages.add(msg.getMessage());
             try {
                 Thread.sleep(timeDelay * (new Random().nextInt(10)+1));
             } catch (InterruptedException e) {

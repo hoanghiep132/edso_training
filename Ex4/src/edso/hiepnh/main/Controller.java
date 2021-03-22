@@ -1,5 +1,6 @@
 package edso.hiepnh.main;
 
+import edso.hiepnh.entities.ArrayHandler;
 import edso.hiepnh.entities.ListResult;
 import edso.hiepnh.entities.MyArray;
 import edso.hiepnh.entities.Result;
@@ -71,39 +72,45 @@ public class Controller implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setContentText("Please choose file input!");
             alert.show();
-        }else if(searchField.getText().equals("")){
+//        }else if(searchField.getText().equals("")){
+        }else if(!searchField.getText().equals("")){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setContentText("Please type search field!");
             alert.show();
         }
         else{
 //            int[] array = FileIO.readArrayToFile(file.getAbsolutePath());
-            int[] array = FileIO.readArrayToFile("/home/hiepnguyen/InteliJ_Project/edso_training/Ex4/src/edso/hiepnh/file/input.txt");
+            int[] array = FileIO.readArrayToFile("src/edso/hiepnh/file/input.txt");
             MyArray myArray = new MyArray(array,FileIO.lengthArray);
-            List<Integer> listSearch = new ArrayList<>();
-            String search = searchField.getText();
-            if(!search.equals("")){
-                String[] strings = search.split(" ");
-                for (String s : strings){
-                    try {
-                        listSearch.add(Integer.valueOf(s));
-                    }catch (Exception ex){
-                        System.err.println("Input sai");
-                    }
-                }
-            }
+            ArrayHandler arrayHandler = new ArrayHandler(myArray);
+//            ListResult listResult = new ListResult(results);
             ListResult listResult = new ListResult();
-            Sorting sorting = new Sorting(myArray);
-            Searching searching = new Searching(myArray,listSearch, listResult);
-            DisplayResult displayResult = new DisplayResult(listResult);
+            myArray.setListResult(listResult);
+            List<Integer> listSearch = Arrays.asList(23,32,5,7);
+//            List<Integer> listSearch = new ArrayList<>();
+//            String search = searchField.getText();
+//            if(!search.equals("")){
+//                String[] strings = search.split(" ");
+//                for (String s : strings){
+//                    try {
+//                        listSearch.add(Integer.valueOf(s));
+//                    }catch (Exception ex){
+//                        System.err.println("Input sai");
+//                    }
+//                }
+//            }
+            SortingThread sorting = new SortingThread(arrayHandler);
+            SearchingThread searching = new SearchingThread(arrayHandler, listSearch, listResult);
+            DisplayThread display = new DisplayThread(listResult,resultView);
 
             ComplexThread sortThread = new ComplexThread("Sort", sorting);
             ComplexThread searchThread = new ComplexThread("Search" , searching);
-            ComplexThread displayThread = new ComplexThread("Display",displayResult);
+            ComplexThread displayThread = new ComplexThread("Display",display);
 
-            sortThread.start();
             searchThread.start();
+            sortThread.start();
             displayThread.start();
+
         }
 
 

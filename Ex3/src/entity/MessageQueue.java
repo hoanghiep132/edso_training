@@ -1,6 +1,8 @@
 package entity;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -13,6 +15,10 @@ public class MessageQueue implements MessageQueueStatement{
 
     private int state = EMPTY;
     private int length;
+
+    private Producer producer;
+
+    private Consumer consumer;
 
     private Queue<Message> messageList;
 
@@ -39,39 +45,45 @@ public class MessageQueue implements MessageQueueStatement{
         return this.getMessageList().size();
     }
 
-    public int getState() {
-        return state;
-    }
 
-    public void setState(int state) {
-        this.state = state;
+    @Override
+    public synchronized Message sendMessageToConsumber() {
+        while (isEmpty()){
+            System.out.println("Consumer wait : " + new SimpleDateFormat("hh:mm:ss").format(new Date()));
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        notifyAll();
+        Message msg = messageList.remove();
+        if(messageList.size() == 0){
+            state = EMPTY;
+        }else if(state == FULLY){
+            state = AVAIABLE;
+        }
+        return msg;
     }
 
     @Override
-    public  Message sendMessageToConsumber() {
-        if(state != EMPTY){
-            Message msg = messageList.remove();
-            if(messageList.size() == 0){
-                state = EMPTY;
-            }else if(state == FULLY){
-                state = AVAIABLE;
+    public synchronized void recivedMessageFromProducer(Message msg) {
+        while (isFully()){
+            try {
+                System.out.println("Producer wait : " + new SimpleDateFormat("hh:mm:ss").format(new Date()));
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            return msg;
-        }else{
-            return null;
         }
-    }
+        notifyAll();
+        msg.setStatus(Message.PENDING);
+        messageList.add(msg);
+        if(messageList.size() == length){
+            state = FULLY;
+        }else if(state == EMPTY){
+            state = AVAIABLE;
+        }
 
-    @Override
-    public void recivedMessageFromProducer(Message msg) {
-        if(state != FULLY){
-            msg.setStatus(Message.PENDING);
-            messageList.add(msg);
-            if(messageList.size() == length){
-                state = FULLY;
-            }else if(state == EMPTY){
-                state = AVAIABLE;
-            }
-        }
     }
 }
