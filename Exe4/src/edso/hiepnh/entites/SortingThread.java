@@ -28,10 +28,11 @@ public class SortingThread extends Thread{
     public void addSearchThread(SearchingThread searchingThread){
         this.searchingThread = searchingThread;
     }
+
+
     @Override
     public void run() {
         while (true){
-            System.out.println(listArrayInput.size());
             if(!listArrayInput.isEmpty()){
                 System.out.println("Start Sorting");
                 MyArray myArray = listArrayInput.remove(0);

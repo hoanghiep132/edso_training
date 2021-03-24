@@ -1,10 +1,6 @@
 package edso.hiepnh.service;
 
 
-
-import edso.hiepnh.entites.MyArray;
-import edso.hiepnh.random.RandomArray;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +9,7 @@ public class FileIO {
 
     public static String inputFile = "src/edso/hiepnh/file/input.txt";
     public static String searchFile = "src/edso/hiepnh/file/search.txt";
-    public static Integer lengthArray = 10000;
+    public static Integer lengthArray = 100000;
 
     public static void writeArrayToFile(String fileName,int[] arr){
         File file = new File(fileName);
@@ -84,11 +80,4 @@ public class FileIO {
         }
         return arr;
     }
-
-
-    public static void main(String[] args) {
-        MyArray myArray = new RandomArray().randomArray(lengthArray);
-        writeArrayToFile(inputFile,myArray.getArray());
-    }
-
 }

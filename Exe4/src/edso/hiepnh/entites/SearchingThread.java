@@ -29,10 +29,18 @@ public class SearchingThread extends Thread{
         this.notify();
     }
 
-    private void startSearch(List<Integer> searchInput){
+    private  void startSearch(List<Integer> searchInput){
+        displayThread.clear();
         for(int i = 0 ; i < arraySorted.getLength(); i++){
             if(searchInput.contains(arraySorted.get(i))){
                 displayThread.addResult(new Result(i,arraySorted.get(i)));
+                synchronized (this){
+                    try {
+                        this.wait(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
         synchronized (this) {
@@ -44,6 +52,7 @@ public class SearchingThread extends Thread{
     public void run() {
         while(true){
             if(!listSearchInput.isEmpty() && arraySorted != null){
+                System.out.println("Start Searching");
                 List<Integer> listInput = listSearchInput.remove(0);
                 startSearch(listInput);
             }else {

@@ -13,26 +13,32 @@ public class DisplayThread extends Thread{
 
     private boolean addListener;
 
+    public DisplayThread() {
+        init();
+    }
+
     private void init(){
         resultList = new ArrayList<>();
         addListener = false;
+    }
+
+    public void clear(){
+        init();
+        viewArea.setText("");
     }
 
     public void setViewArea(TextArea viewArea) {
         this.viewArea = viewArea;
     }
 
-    public DisplayThread() {
-        init();
-    }
-
     public void addResult(Result rs){
+        resultList.add(rs);
+        addListener = true;
         synchronized (this){
             notify();
         }
-        resultList.add(rs);
-        addListener = true;
     }
+
 
     private Result getLastItem(){
         return resultList.get(resultList.size()-1);
@@ -49,7 +55,6 @@ public class DisplayThread extends Thread{
                     synchronized (this){
                         wait();
                     }
-//                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
