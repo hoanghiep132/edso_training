@@ -18,7 +18,7 @@ public class Main {
         rs.forEach(e -> System.out.println(e.length() + " : " + e));
         System.out.println("\n\n");
 
-        List<String> rs2 = new ReadFileController(baseReadFile).readFileAcsse(baseFile,5);
+        List<String> rs2 = new ReadFileController(baseReadFile).readFileByRandomAccess(baseFile,5);
 
         rs2.forEach(e -> System.out.println(e.length() + " : " + e));
     }

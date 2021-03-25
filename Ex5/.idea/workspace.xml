@@ -2,31 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9d8ed1b-9d34-4ad2-9a90-fe31ebf2aab8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/client/file/file1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/client/file/file2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/client/main/Client1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/client/main/Client2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/server/file/file_server1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edso/hiepnh/server/file/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/client/config/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/client/config/config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/client/enties/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/client/enties/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/client/main/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/client/service/FileIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/client/service/FileIO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/server/config/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/server/config/config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/entities/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/entities/Response.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/server/entites/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/server/entites/ClientHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/server/entites/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/server/entites/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/server/service/FileIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Exe5/edso/hiepnh/server/service/FileIO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/client/config/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/client/config/config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/client/enties/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/client/enties/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/client/main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/client/service/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/client/service/FileIO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/entities/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/entities/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/server/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/server/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/server/config/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/server/config/config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/server/entites/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/server/entites/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/server/entites/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/server/entites/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edso/hiepnh/server/service/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edso/hiepnh/server/service/FileIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Exe4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe1/src/edso/hiepnh/controller/ReadFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe1/src/edso/hiepnh/controller/ReadFileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe1/src/edso/hiepnh/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe1/src/edso/hiepnh/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe1/src/edso/hiepnh/service/BaseReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe1/src/edso/hiepnh/service/BaseReadFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Exe1/src/edso/hiepnh/service/ReadFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Exe1/src/edso/hiepnh/service/ReadFileService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,10 +46,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/edso/hiepnh/server/file" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProject\edso_training\Ex5\src\edso\hiepnh\server\file" />
       <recent name="D:\IdeaProject\edso_training\Exe5\src\edso\hiepnh\server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -86,6 +77,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="edso.hiepnh.client.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileIO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edso.hiepnh.server.service.FileIO" />
+      <module name="Exe5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edso.hiepnh.server.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -121,11 +125,13 @@
       <item itemvalue="Application.Client2" />
       <item itemvalue="Application.Client1" />
       <item itemvalue="Application.Server" />
+      <item itemvalue="Application.FileIO" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Client1" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.FileIO" />
       </list>
     </recent_temporary>
   </component>
@@ -142,7 +148,7 @@
       <workItem from="1616568820752" duration="1224000" />
       <workItem from="1616570266451" duration="614000" />
       <workItem from="1616570909371" duration="13940000" />
-      <workItem from="1616634683798" duration="9399000" />
+      <workItem from="1616634683798" duration="18023000" />
     </task>
     <servers />
   </component>
@@ -168,11 +174,6 @@
           <url>file://$PROJECT_DIR$/src/edso/hiepnh/client/enties/Client.java</url>
           <line>19</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/edso/hiepnh/server/entites/Server.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -23,7 +23,7 @@ public class ReadFileService implements BaseReadFile {
     }
 
     @Override
-    public List<String> readFile(File file, int numberOfLine) {
+    public List<String> readFileByRandomAccess(File file, int numberOfLine) {
         List<String> stringList = new ArrayList<>();
         try(RandomAccessFile raf = new RandomAccessFile(file,"r")){
             long len = raf.length() - numberOfLine;

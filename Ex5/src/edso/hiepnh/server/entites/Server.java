@@ -43,6 +43,10 @@ public class Server {
                     Thread t = new ClientHandler(socket, ois, oos);
                     t.start();
                     index++;
+                    System.out.println("Number of clients : " + index);
+                }else {
+                    System.out.println("maximum client");
+                    socket.close();
                 }
             }
             catch (Exception e){

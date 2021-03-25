@@ -4,9 +4,6 @@ import edso.hiepnh.entities.BaseFile;
 import edso.hiepnh.service.BaseReadFile;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,8 +27,8 @@ public class ReadFileController {
         }
     }
 
-    public List<String> readFileAcsse(BaseFile baseFile, int numberOfLine) {
+    public List<String> readFileByRandomAccess(BaseFile baseFile, int numberOfLine) {
         File file = new File(baseFile.getFileDirectory());
-        return baseReadFile.readFile(file,numberOfLine);
+        return baseReadFile.readFileByRandomAccess(file,numberOfLine);
     }
 }

@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 public class Response implements Serializable{
 
-    public static final String OK = "Ok";
+    public static final String OK = "OK";
     public static final String BAD_REQUEST = "Failed";
 
     private String message;

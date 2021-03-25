@@ -41,31 +41,12 @@ public class Client implements Runnable{
         String currentFileName = null;
         String currentMethod = null;
         try {
-            objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectInputStream = new ObjectInputStream(socket.getInputStream());
+            objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }
         while (true){
-            try {
-                String requestStr = scanner.nextLine();
-                Request request = null;
-                try {
-                    request = ObjectUtils.convertStringToRequest(requestStr);
-                    currentFileName = request.getFileName();
-                    currentMethod = request.getMethod();
-                }catch (Exception ex){
-                    request = null;
-                    System.err.println("Syntax Error");
-                }
-                if(request != null) {
-                    objectOutputStream.writeObject(request);
-                    objectOutputStream.flush();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
             try {
                 Response response = null;
                 try {
@@ -74,26 +55,28 @@ public class Client implements Runnable{
                     e.printStackTrace();
                 }
                 if(response.getFileInfor() == null){
-                    System.out.println(response.getMessage());
                     if(response.getMessage().equals(Response.OK)){
+                        System.out.println("Server respone : " + response.getMessage());
                         if(Request.POST_METHOD.equals(currentMethod)){
                             FileInfor fileInfor = fileIO.readFile(currentFileName);
                             objectOutputStream.writeObject(fileInfor);
                             objectOutputStream.flush();
                         }
-                    }else {
+                    }else if(response.getMessage().equals(Response.BAD_REQUEST)) {
                         currentFileName = null;
+                        System.out.println("Server respone : " +response.getMessage());
+                    }else {
                         System.out.println(response.getMessage());
                     }
                 }else{
                     System.out.println(response.getMessage());
                     String fileName = null;
                     if(fileIO.checkFileExist(currentFileName)){
-                        String[] strings = currentFileName.split(".");
+                        String[] strings = currentFileName.split("\\.");
                         if(strings.length>1){
                             fileName = strings[0] + "_copy." + strings[1];
                         }else {
-                            fileName = strings[0] + "_copy";
+                            fileName = currentFileName + "_copy";
                         }
                     }else {
                         fileName = currentFileName;
@@ -101,6 +84,24 @@ public class Client implements Runnable{
                     fileIO.writeFile(response.getFileInfor().getDataBytes(),fileName);
                 }
 
+                try {
+                    String requestStr = scanner.nextLine();
+                    Request request = null;
+                    try {
+                        request = ObjectUtils.convertStringToRequest(requestStr);
+                        currentFileName = request.getFileName();
+                        currentMethod = request.getMethod();
+                    }catch (Exception ex){
+                        request = null;
+                        System.err.println("Syntax Error");
+                    }
+                    if(request != null) {
+                        objectOutputStream.writeObject(request);
+                        objectOutputStream.flush();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -32,12 +32,13 @@ public class ClientHandler extends Thread{
 
     @Override
     public void run(){
-//        try {
-//            oos.writeObject("Start Calling pair");
-//            oos.flush();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            Response response = new Response("Start Calling",null);
+            oos.writeObject(response);
+            oos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         String currentFileName = null;
         while (true){
             Object requestObj = null;
@@ -65,7 +66,8 @@ public class ClientHandler extends Thread{
                             oos.writeObject(response);
                             oos.flush();
                         }else {
-                            oos.writeObject(Response.BAD_REQUEST);
+                            Response response = new Response(Response.BAD_REQUEST,null);
+                            oos.writeObject(response);
                         }
                         oos.flush();
                     }else {
