@@ -5,14 +5,15 @@ public class Config {
 
     private int port;
 
-    private String ip;
+    private int maxClient;
 
-    public String getIp() {
-        return ip;
+
+    public int getMaxClient() {
+        return maxClient;
     }
 
-    public void setIp(String ip) {
-        this.ip = ip;
+    public void setMaxClient(int maxClient) {
+        this.maxClient = maxClient;
     }
 
     public int getPort() {

@@ -9,6 +9,7 @@ public class FileIO {
 
     public FileIO() {
         config = new Config();
+        readConfig();
     }
 
     private Config config;
@@ -22,11 +23,15 @@ public class FileIO {
     }
 
     public boolean checkFileExist(String fileName){
-        File f = new File(config.getServerFileDir() + fileName);
-        return f.exists();
+        try {
+            File f = new File(config.getServerFileDir() + fileName);
+            return f.exists();
+        }catch (Exception ex){
+            return false;
+        }
     }
 
-    public void readConfig(){
+    private synchronized void readConfig(){
         String fileName = "src/edso/hiepnh/server/config/config.txt";
         try(BufferedReader bf = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -49,9 +54,16 @@ public class FileIO {
                                 break;
                             }
                         }
-                    case "ip":
+                    case "max_clients":
                         if(strings.length>1){
-                            config.setIp(strings[1]);
+                            try {
+                                int maxClient = Integer.valueOf(strings[1]);
+                                config.setMaxClient(maxClient);
+                            }catch (Exception ex){
+
+                            }finally {
+                                break;
+                            }
                         }
                         break;
                 }
@@ -63,8 +75,14 @@ public class FileIO {
         }
     }
 
-    public void writeFile(byte[] bytes, String fileName){
-        try(FileOutputStream fos = new FileOutputStream(fileName)) {
+    public synchronized void writeFile(byte[] bytes, String fileName){
+        File file = new File(config.getServerFileDir() + fileName);
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try(FileOutputStream fos = new FileOutputStream(file)) {
             fos.write(bytes);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -73,8 +91,8 @@ public class FileIO {
         }
     }
 
-    public FileInfor readFile(String fileName){
-        File file = new File(fileName);
+    public synchronized FileInfor readFile(String fileName){
+        File file = new File(config.getServerFileDir() + fileName);
         long lengthSize = file.length();
         byte[] data = new byte[(int) lengthSize];
         try(FileInputStream fis = new FileInputStream(file)){

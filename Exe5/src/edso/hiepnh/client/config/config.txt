@@ -1,1 +1,0 @@
-client_dir=src/edso/hiepnh/client/file

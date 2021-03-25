@@ -9,22 +9,14 @@ import edso.hiepnh.utils.ObjectUtils;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Client implements Runnable{
 
     private FileIO fileIO;
 
-    private int id;
-
-    public Client(int id) {
-        this.id = id;
-    }
-
     public Client() {
         fileIO = new FileIO();
-        fileIO.readConfig();
         Config config = fileIO.getConfig();
         try {
             socket = new Socket(config.getIp(),config.getPort());
@@ -47,43 +39,73 @@ public class Client implements Runnable{
     public void run() {
         Scanner scanner = new Scanner(System.in);
         String currentFileName = null;
+        String currentMethod = null;
         try {
-            objectInputStream = new ObjectInputStream(socket.getInputStream());
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+            objectInputStream = new ObjectInputStream(socket.getInputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }
         while (true){
             try {
                 String requestStr = scanner.nextLine();
-                Request request = ObjectUtils.convertStringToRequest(requestStr);
-                currentFileName = request.getFileName();
-                objectOutputStream.writeObject(request);
-                objectOutputStream.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                String response = objectInputStream.readUTF();
-                System.out.println(response);
-                if(response.equals(Response.OK)){
-                    FileInfor fileInfor = fileIO.readFile(currentFileName);
-                    objectOutputStream.writeObject(fileInfor);
+                Request request = null;
+                try {
+                    request = ObjectUtils.convertStringToRequest(requestStr);
+                    currentFileName = request.getFileName();
+                    currentMethod = request.getMethod();
+                }catch (Exception ex){
+                    request = null;
+                    System.err.println("Syntax Error");
+                }
+                if(request != null) {
+                    objectOutputStream.writeObject(request);
                     objectOutputStream.flush();
-                }else {
-                    currentFileName = null;
-                    System.out.println(response);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-        }
-    }
+            try {
+                Response response = null;
+                try {
+                    response = (Response) objectInputStream.readObject();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                if(response.getFileInfor() == null){
+                    System.out.println(response.getMessage());
+                    if(response.getMessage().equals(Response.OK)){
+                        if(Request.POST_METHOD.equals(currentMethod)){
+                            FileInfor fileInfor = fileIO.readFile(currentFileName);
+                            objectOutputStream.writeObject(fileInfor);
+                            objectOutputStream.flush();
+                        }
+                    }else {
+                        currentFileName = null;
+                        System.out.println(response.getMessage());
+                    }
+                }else{
+                    System.out.println(response.getMessage());
+                    String fileName = null;
+                    if(fileIO.checkFileExist(currentFileName)){
+                        String[] strings = currentFileName.split(".");
+                        if(strings.length>1){
+                            fileName = strings[0] + "_copy." + strings[1];
+                        }else {
+                            fileName = strings[0] + "_copy";
+                        }
+                    }else {
+                        fileName = currentFileName;
+                    }
+                    fileIO.writeFile(response.getFileInfor().getDataBytes(),fileName);
+                }
 
-    public static void main(String[] args) {
-        new Client().run();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 
 }

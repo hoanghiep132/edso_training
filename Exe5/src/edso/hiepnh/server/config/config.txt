@@ -1,1 +1,0 @@
-server_dir=src/edso/hiepnh/server/file

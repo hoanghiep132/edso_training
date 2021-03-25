@@ -12,6 +12,7 @@ public class FileIO {
 
     public FileIO() {
         config = new Config();
+        readConfig();
     }
 
     public Config getConfig() {
@@ -26,14 +27,14 @@ public class FileIO {
         return f.exists();
     }
 
-    public void readConfig(){
+    private void readConfig(){
         String fileName = "src/edso/hiepnh/client/config/config.txt";
         try(BufferedReader bf = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = bf.readLine()) != null) {
                 String[] strings = line.split("=");
                 switch (strings[0]){
-                    case "server_file_dir":
+                    case "client_file_dir":
                         if(strings.length>1){
                             config.setClienFileDir(strings[1]);
                         }
@@ -64,7 +65,13 @@ public class FileIO {
     }
 
     public void writeFile(byte[] bytes, String fileName){
-        try(FileOutputStream fos = new FileOutputStream(fileName)) {
+        File file = new File(config.getClienFileDir() + fileName);
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try(FileOutputStream fos = new FileOutputStream(file)) {
             fos.write(bytes);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -74,15 +81,15 @@ public class FileIO {
     }
 
     public FileInfor readFile(String fileName){
-        File file = new File(fileName);
+        String path = config.getClienFileDir() + fileName;
+        File file = new File(path);
         long lengthSize = file.length();
         byte[] data = new byte[(int) lengthSize];
         try(FileInputStream fis = new FileInputStream(file)){
             fis.read(data);
-        }catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
         return new FileInfor(data,lengthSize);
     }

@@ -1,4 +1,4 @@
-client_file_dir=src/edso/hiepnh/client/file
+client_file_dir=src/edso/hiepnh/client/file/
 port=6666
 ip=localhost
 

@@ -1,6 +1,5 @@
 package edso.hiepnh.server.entites;
 
-import edso.hiepnh.client.enties.Client;
 import edso.hiepnh.server.config.Config;
 import edso.hiepnh.server.service.FileIO;
 
@@ -14,38 +13,52 @@ public class Server {
 
     private ServerSocket serverSocket;
 
-    private List<ClientHandler> clientHandlers;
+    private int max_client;
+
+    private static int index = 0;
 
     private ObjectInputStream ois;
 
     private ObjectOutputStream oos;
 
-    public static void main(String[] args) throws IOException {
-        List<ClientHandler> clientHandlers = new ArrayList<>();
+    public Server() {
         FileIO fileIO = new FileIO();
-        fileIO.readConfig();
         Config config = fileIO.getConfig();
-        ServerSocket ss = new ServerSocket(config.getPort());
+        max_client = config.getMaxClient();
+        try {
+            serverSocket = new ServerSocket(config.getPort());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-        while (true)
-        {
-            Socket s = null;
-            try
-            {
-                s = ss.accept();
-                System.out.println("A new client is connected : " + s.getInetAddress() + " / " + s.getPort());
-                ObjectInputStream ois = new ObjectInputStream(s.getInputStream());
-                ObjectOutputStream oos = new ObjectOutputStream(s.getOutputStream());
-                oos.writeObject("Hello client");
-                oos.flush();
-                Thread t = new ClientHandler(s, ois, oos);
-                clientHandlers.add((ClientHandler) t);
-                t.start();
+    public void open(){
+        while (true) {
+            Socket socket = null;
+            try {
+                socket = serverSocket.accept();
+                oos = new ObjectOutputStream(socket.getOutputStream());
+                ois = new ObjectInputStream(socket.getInputStream());
+                if(index < max_client){
+                    Thread t = new ClientHandler(socket, ois, oos);
+                    t.start();
+                    index++;
+                }
             }
             catch (Exception e){
-                s.close();
+                try {
+                    socket.close();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
                 e.printStackTrace();
             }
         }
+    }
+
+    public static void main(String[] args) throws IOException {
+        Server server = new Server();
+        server.open();
+
     }
 }
